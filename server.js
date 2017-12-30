@@ -15,6 +15,8 @@ const configDB = require('./app/config/database');
 
 const salt = "$2a$10$/l0HmW6Lmr6g/.1tseoTN.";
 
+ module.exports = {app};
+ 
 mongoose.connect(configDB.url);
 
 app.set("port", process.env.PORT || 3001);
