@@ -10,3 +10,12 @@
  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
  module.exports = {app};
+
+const cors = require('cors');
+const {CLIENT_ORIGIN} = require('./app/config/react');
+
+app.use(
+    cors({
+        origin: CLIENT_ORIGIN
+    })
+);
