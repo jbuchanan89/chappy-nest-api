@@ -1,33 +1,24 @@
- const express = require('express');
- const app = express();
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
 
- const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+const {CLIENT_ORIGIN} = require('./app/config/react');
 
-
-const fs = require("fs");
-let bcrypt = require('bcryptjs');
-// const bodyParser = require('body-parser');
-// app.use(bodyParser());
-const mongoose = require('mongoose');
-var moment = require('moment');
-var path = require('path');
-
-const User = require('./app/models/user');
-const Chore = require('./app/models/chore');
-const DailyTask = require('./app/models/DailyTask');
-const configDB = require('./app/config/database');
-
-const salt = "$2a$10$/l0HmW6Lmr6g/.1tseoTN.";
-
-
- app.get('/api/*', (req, res) => {
-   res.json({ok: true});
- });
 
  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
  module.exports = {app};
 
+app.use(
+    cors({
+        origin: CLIENT_ORIGIN
+    })
+);
+
+ app.get('/api/*', (req, res) => {
+   res.json({ok: true});
+ });
 
 
 
@@ -35,21 +26,20 @@ const salt = "$2a$10$/l0HmW6Lmr6g/.1tseoTN.";
 
 
 
+// const fs = require("fs");
+// let bcrypt = require('bcryptjs');
+// // const bodyParser = require('body-parser');
+// // app.use(bodyParser());
+// const mongoose = require('mongoose');
+// var moment = require('moment');
+// var path = require('path');
 
+// const User = require('./app/models/user');
+// const Chore = require('./app/models/chore');
+// const DailyTask = require('./app/models/DailyTask');
+// const configDB = require('./app/config/database');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+//const salt = "$2a$10$/l0HmW6Lmr6g/.1tseoTN.";
 
 // mongoose.connect(configDB.url);
 
