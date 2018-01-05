@@ -1,3 +1,3 @@
 CLIENT_ORIGIN = {
-	'url': process.env.CLIENT_ORIGIN || 'https://tender-mirzakhani-ff883e.netlify.com/'
+	'url': process.env.CLIENT_ORIGIN || 'http://localhost:3000'
 };
