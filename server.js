@@ -139,7 +139,10 @@ app.post('/api/account', function(req,res){
 	let user = req.body;
 	user.password = bcrypt.hashSync(user.password, salt);
 	User.create(user,function(err,user){
-		res.send(user);
+    if(err) {
+      res.send(err)
+    }
+		res.json(user);
 	});
 });
 
