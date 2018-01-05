@@ -37,7 +37,7 @@ mongoose.connect(configDB.url);
 app.get('/api/chores',function(req,res){
 	Chore.find({},function(err,chores){
 	res.send(chores);
-	}); 
+	});
 });
 
 
@@ -60,7 +60,7 @@ app.get('/api/chores/:id', function(req, res) {
 	});
 });
 
-//  CREATE NEW CHORE 
+//  CREATE NEW CHORE
 app.post('/api/chore', function(req,res){
 	Chore.create(req.body,function(err,chore){
 		res.send(chore);
@@ -77,7 +77,7 @@ app.post('/api/dailytask', function(req,res) {
 // GET DAILY TASK FOR CHILD DASHBOARD
 app.get('/api/dailytask/:id/', function(req,res){
 	let Date = moment().format("L");
-	let childId = req.params.id; 
+	let childId = req.params.id;
 	DailyTask.find({child_id: childId},function(err,dailytask){
 		res.send(dailytask);
 
@@ -141,7 +141,7 @@ app.post('/api/account', function(req,res){
 	});
 });
 
-app.post('http://localhost:3001/api/login', function(req, res){
+app.post('/api/login', function(req, res){
 	let username = req.body.username;
 	let password = bcrypt.hashSync(req.body.password, salt);
 	User.findOne({username: username},function(err, user){
