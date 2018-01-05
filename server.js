@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const mongoose = require('mongoose');
 const cors = require('cors');
 const fs = require("fs");
@@ -16,15 +16,11 @@ const configDB = require('./app/config/database');
 const User = require('./app/models/user');
 const DailyTask = require('./app/models/DailyTask');
 const Chore = require('./app/models/chore');
-
-
 const salt = "$2a$10$/l0HmW6Lmr6g/.1tseoTN.";
 
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
-
- app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-
- module.exports = {app};
+module.exports = {app};
 
 app.use(
     cors({
@@ -32,12 +28,11 @@ app.use(
     })
 );
 
- app.get('/api', (req, res) => {
+app.get('/api', (req, res) => {
    res.json({ok: true});
- });
+});
 
 mongoose.connect(configDB.url);
-
 
 app.get('/api/chores',function(req,res){
 	Chore.find({},function(err,chores){
@@ -146,7 +141,7 @@ app.post('/api/account', function(req,res){
 	});
 });
 
-app.post('/api/login', function(req, res){
+app.post('http://localhost:3001/api/login', function(req, res){
 	let username = req.body.username;
 	let password = bcrypt.hashSync(req.body.password, salt);
 	User.findOne({username: username},function(err, user){

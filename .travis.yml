@@ -7,6 +7,6 @@ deploy:
   provider: heroku
   api_key:
     secure: IHMLiI8A9G8unkYafvSpT7rrjw4JDGr7srI5QOmmQDfWf7mOCCmrSYpA0SHacSmC5AkH6uyNF1+yOzLUUfOdRB3xTzbNIHPj1T5b0EbE9Nc60ED9vM9R/bNIevMubMZro4u0+PcvjCB4FC5I00PGFJu3DK54Q5sy7TPH1hnB4QuBVjIYHEedQ0lQ79aB9X3Fide/FoIIjiioYQdumL8BPCiOZAMP5N02KP819bSpn0xNa+1G0h02o4pdg3GS+cgGzJphhO0+ddtD+MRMaa/YwBBlx/xekNI3hwoMT/KE8EIrlDZb84NMKZOxJovtnm7f8nvWbC00av9nz42MKRgVTuJ3QOY49HU8+tBtX8yHmA14TYQcNDmUx9QxrrospPfNYVRrtJQ7YgEPKGmJtbZdzrA4xc2mt7B6w76XQiqcPLpUEW3AGkh6s8/JjMG8BoVTa6wj9kv2jAtbhI/qLr3fXYN1GEwng6vIFAodFV8XF/n6zz10L0UG7MFM8OgCkpqvBhOvJkAYgtGrFn+1ddJ05iA51kLxH6aYNmuOWGAClh36iYZIoOUNbQ28hD3LYBSL6ZC82qr9/UusabxEEiauK1CkJ0TcqtrNu5liiXzoKdH+7OQ2xZdff8NN6d+EADtaKm5b721LuP4AQPzuQo2hV0XD17elyv0vQEswxceeIAA=
-  app: https://git.heroku.com/aqueous-sea-33808.git
+  app: https://git.heroku.com/mighty-escarpment-24353.git
   on:
     repo: jbuchanan89/chappy-nest-api
