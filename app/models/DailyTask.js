@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt-nodejs');
 const moment = require('moment')
 
 var dailyTaskSchema = mongoose.Schema({
