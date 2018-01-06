@@ -28,8 +28,6 @@ app.use(
     })
 );
 
-
-
 app.get('/api', (req, res) => {
    res.json({ok: true});
 });
@@ -96,32 +94,36 @@ app.put('/api/dailytask/:id/:bool', function(req,res) {
 });
 
 app.get('/api/parent_task/:id/:day', function(req,res){
-
 	let childrenIDs = [];
 	let children = [];
 	let count = 0;
 	let taskCount = 0;
 
 	console.log('day',req.params.day);
-	let day = req.params.day.split("-");
-
+	let day = req.params.day;
+	console.log(day);
 	User.find({parent_id: req.params.id}, function(err,users){
 		users.forEach(function(user){
 			childrenIDs.push(user._id);
 			children.push(user);
 		});
-		DailyTask.find({child_id: {$in: childrenIDs},day:day[0]+"/"+day[1]+"/"+day[2] },function(err,tasks){
-			taskCount = tasks.length;
+		// DailyTask.find({child_id: {$in: childrenIDs},day:day[0]+"/"+day[1]+"/"+day[2] },function(err,tasks){
+		// 	taskCount = tasks.length;
+		// 	res.json(tasks);
+		// });
+
+		DailyTask.find({child_id: {$in: childrenIDs},day: day,function(err,tasks){
+			//taskCount = tasks.length;
 			res.json(tasks);
 		});
 	});
 
-	function checkComplete(children){
-		count++;
-		if(count == taskCount){
-			res.send(children);
-		}
-	}
+	// function checkComplete(children){
+	// 	count++;
+	// 	if(count == taskCount){
+	// 		res.send(children);
+	// 	}
+	// }
 });
 
 // *****************ACCOUNTS****************
