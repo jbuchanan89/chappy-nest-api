@@ -113,9 +113,9 @@ app.get('/api/parent_task/:id/:day', function(req,res){
 		// });
 
 		DailyTask.find({child_id: {$in: childrenIDs},day: day,function(err,tasks){
-			//taskCount = tasks.length;
+			taskCount = tasks.length;
 			res.json(tasks);
-		}
+		});
 	});
 
 	// function checkComplete(children){
