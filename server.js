@@ -100,7 +100,7 @@ app.get('/api/parent_task/:id/:day', function(req,res){
 	let taskCount = 0;
 
 	console.log('day',req.params.day);
-	let day = req.params.day.split("-");
+	let day = req.params.day.split('-')
 
 	User.find({parent_id: req.params.id}, function(err,users){
 		users.forEach(function(user){
@@ -108,12 +108,7 @@ app.get('/api/parent_task/:id/:day', function(req,res){
 			children.push(user);
 		});
 
-		// DailyTask.find({child_id: {$in: childrenIDs},day:day[0]+"/"+day[1]+"/"+day[2] },function(err,tasks){
-		// 	taskCount = tasks.length;
-		// 	res.json(tasks);
-		// });
-
-		DailyTask.find({child_id: {$in: childrenIDs},day: day},function(err,tasks){
+		DailyTask.find({child_id: {$in: childrenIDs},day:day[0]+"/"+day[1]+"/"+day[2] },function(err,tasks){
 			taskCount = tasks.length;
 			res.json(tasks);
 		});
