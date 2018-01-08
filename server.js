@@ -75,10 +75,19 @@ app.post('/api/dailytask', function(req,res) {
 });
 
 // GET DAILY TASK FOR CHILD DASHBOARD
-app.get('/api/dailytask/:id/', function(req,res){
-	let Date = moment().format("L");
+// app.get('/api/dailytask/:id/', function(req,res){
+// 	let Date = moment().format("L");
+// 	let childId = req.params.id;
+// 	DailyTask.find({child_id: childId},function(err,dailytask){
+// 		res.send(dailytask);
+
+// 	});
+// });
+
+app.get('/api/dailytask/:id/:day', function(req,res){
+	let day = req.params.day.split('-')
 	let childId = req.params.id;
-	DailyTask.find({child_id: childId},function(err,dailytask){
+	DailyTask.find({child_id: childId,day:day[0]+"/"+day[1]+"/"+day[2]},function(err,dailytask){
 		res.send(dailytask);
 
 	});
